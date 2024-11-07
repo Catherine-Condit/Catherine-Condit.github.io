@@ -25,7 +25,7 @@ html {
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background: transparent;
+    background: #00abf0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,7 +64,7 @@ html {
 
 .navbar a:hover,
 .navbar a.active {
-    color: #00abf0;
+    color: #081b29;
 }
 
 /**HOME SECTION*/
@@ -456,11 +456,14 @@ html {
 /*FOOTER SECTION*/
 /* Styling for footer element */
 footer {
-    padding: .5%;
-    /* This gives the footer padding that is equal to 2% of the width of the element's area */
+    padding: .7%;
     background-color: white;
     text-align: center;
-    color: #081b29
+    color: #081b29;
+    position: relative;
+    margin-top: 20px;
+    bottom: 0;
+    width: 100%;
 }
 
 a {
@@ -509,6 +512,7 @@ a {
     .about-container {
         padding: 0 10px;
         /* Ensure padding is consistent */
+        margin-bottom: 50px;
     }
 }
 
@@ -580,13 +584,15 @@ a {
     }
 
     .home-sci {
+        bottom: 40px;
+        width: 170px;
         position: absolute;
-        top: 50%;
         left: 70%;
         transform: translate(-50%, -50%);
         display: flex;
+        margin-left: 20px;
+        margin-bottom: 30px;
         justify-content: space-betweens;
-        width: auto;
         align-items: center;
         z-index: 15;
         gap: 15px;
@@ -601,10 +607,28 @@ a {
         background: transparent;
         border: 2px solid #00abf0;
         border-radius: 50%;
-        font-size: 22px;
+        font-size: 20px;
         color: #00abf0;
         text-decoration: none;
+        z-index: 1;
+        overflow: hidden;
         transition: all 0.3s ease-in-out;
+    }
+
+    .home-sci a::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        background: #00abf0;
+        height: 100%;
+        z-index: -1;
+        transition: .5s;
+    }
+
+    .home-sci a:hover::before{
+        width: 100%;
     }
 
     .home-sci a:hover {
