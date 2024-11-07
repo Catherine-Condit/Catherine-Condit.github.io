@@ -9,7 +9,7 @@
 
 body {
     color: #ededed;
-    height: 100vh;
+    /*height: 100vh;*/
     overflow-x: hidden;
 }
 
@@ -17,6 +17,11 @@ body {
 html {
     scroll-behavior: smooth;
     /* Enables smooth scrolling */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
 .header {
@@ -415,10 +420,10 @@ html {
 
 /* About Section Styling*/
 .about {
-    padding: 50px 10%;
+    padding: 70px 10%;
     background-color: #1c1c1c;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     color: #ededed;
 }
 
@@ -456,14 +461,13 @@ html {
 /*FOOTER SECTION*/
 /* Styling for footer element */
 footer {
-    padding: .7%;
+    padding: .5%;
     background-color: white;
     text-align: center;
     color: #081b29;
-    position: relative;
-    margin-top: 20px;
-    bottom: 0;
     width: 100%;
+    bottom: 0;
+    position: fixed;
 }
 
 a {
