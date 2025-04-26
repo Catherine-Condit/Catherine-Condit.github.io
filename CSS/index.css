@@ -1523,7 +1523,7 @@ section {
 }
 /*end in the lab section*/
 
-/*contact form section*/
+/* Contact Section */
 #Contact {
   background-color: var(--contact-bg);
   color: var(--contact-text);
@@ -1532,83 +1532,119 @@ section {
 
 #Contact h2 {
   text-align: center;
-  font-size: 3rem;
-  margin-bottom: 24px;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-#Contact form {
-  max-width: 600px;
+.intro-text {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 800px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  text-align: center;
 }
 
-#Contact input,
-#Contact textarea {
-  width: 100%;
-  padding: 12px 16px;
+.contact-item {
   background-color: var(--contact-input-bg);
   border: 1px solid var(--contact-input-border);
   border-radius: 8px;
-  font-size: 1rem;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.contact-item i {
+  font-size: 2rem;
+  color: var(--contact-accent);
+  margin-bottom: 10px;
+}
+
+.contact-item p {
+  font-size: 1.1rem;
   color: var(--contact-text);
-  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-#Contact input:focus,
-#Contact textarea:focus {
-  border-color: var(--contact-accent);
-  outline: none;
+.contact-item a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--contact-accent);
+  transition: color 0.3s ease;
 }
 
-#Contact button {
-  background: var(--contact-button-bg);
-  color: var(--contact-button-text);
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
+.contact-item a:hover {
+  color: #0056b3; /* Hover color for links */
+}
+
+@media (max-width: 768px) {
+  .contact-info {
+    grid-template-columns: 1fr; /* Stack items on smaller screens */
+  }
+}
+
+/* Footer Section */
+.site-footer {
+  background-color: var(--nav-bg);
+  color: var(--text-color);
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-content p {
+  margin: 0;
+  font-weight: 500;
   font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: var(--contact-buttonShadow);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-#Contact button:hover {
-  background: var(--button-hover-bg);
-  box-shadow: var(--button-hover-shadow);
+.social-icons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-#Contact button:active {
-  box-shadow: var(--button-active-shadow);
-}
-
-.success-message {
-  position: relative;
-  margin-top: 16px;
-  padding: 12px 16px;
-  background-color: var(--section-bg);
-  border-left: 4px solid var(--contact-accent, #4caf50);
+.social-icons a {
   color: var(--text-color);
-  font-size: 0.95rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: opacity 0.3s ease;
+  font-size: 24px;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.success-message .close-btn {
-  position: absolute;
-  right: 12px;
-  top: 8px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: var(--text-color);
+.social-icons a:hover {
+  color: #0077b5; /* LinkedIn blue */
+  transform: scale(1.1);
 }
 
-.hidden {
-  display: none;
+.social-icons a:focus {
+  outline: 2px solid #0077b5;
+  outline-offset: 2px;
 }
+
 
 /* Footer Styles */
 .site-footer {

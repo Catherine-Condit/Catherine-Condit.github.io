@@ -11,6 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init({
+            publicKey: "jGP_VHtKrg4Eb97Jm",
+          });
+       })();
+    </script>
 </head>
 
 <!--Body-->
@@ -251,22 +261,26 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="Contact" class="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <form id="contact-form">
-                <input type="text" placeholder="Your Name" required />
-                <input type="email" placeholder="Your Email" required />
-                <textarea placeholder="Your Message" required></textarea>
-                <button type="submit">Send</button>
-                <div id="success-message" class="success-message hidden">
-                    <span class="close-btn" onclick="dismissMessage()">×</span>
-                    Thanks! Your message has been sent. 💌
-                </div>
-            </form>
+   <section id="Contact" class="contact">
+    <div class="container">
+        <h2>Contact</h2>
+        <p class="intro-text">Feel free to get in touch through any of the following methods:</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fa fa-envelope"></i>
+                <p><strong>Email:</strong> <a href="mailto:catherinecondit@outlook.com">catherinecondit@outlook.com</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fa fa-linkedin"></i>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/catherine-condit05" target="_blank" rel="noopener">Catherine Condit</a></p>
+            </div>
+            <div class="contact-item center">
+                <i class="fa fa-github"></i>
+                <p><strong>GitHub:</strong> <a href="https://github.com/Catherine-Condit" target="_blank" rel="noopener">Catherine-Condit</a></p>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!--Footer section-->
     <footer class="site-footer">
@@ -278,6 +292,9 @@
                 </a>
                 <a href="https://github.com/Catherine-Condit"  target="_blank" rel="noopener" title="Github">
                     <i class="fa fa-github"></i>
+                </a>
+                <a href="mailto:catherinecondit@outlook.com" target="_blank">
+                    <i class="nav-item fa fa-envelope"></i>
                 </a>
             </div>
         </div>

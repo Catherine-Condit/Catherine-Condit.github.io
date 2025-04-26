@@ -151,19 +151,4 @@ window.addEventListener('scroll', () => {
 });
 
 
-/*contact form*/
-document.getElementById('contact-form').addEventListener('submit', function (e) {
-  e.preventDefault();
 
-  // Reset the form
-  this.reset();
-
-  // Show success message
-  const successMsg = document.getElementById('success-message');
-  successMsg.classList.remove('hidden');
-});
-
-// Function to dismiss the success message
-function dismissMessage() {
-  document.getElementById('success-message').classList.add('hidden');
-}
