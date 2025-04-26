@@ -9,6 +9,7 @@
   --slideshow-bg: #d9d9d9;
   --slideshow-slide: white;
   --slideshow-text: #121212;
+  --hover-accent: #000;
   --about-visualShadow: rgba(0, 0, 0, .12);
   --inset-visualShadow: rgba(0,0,0,0.9);
   --girl-dropShadow: rgba(0,0,0,0.1);
@@ -38,6 +39,7 @@
   --slideshow-bg: grey;
   --slideshow-slide: #121212;
   --slideshow-text: #e0e0e0;
+  --hover-accent: #fff;
   --about-visualShadow: #f0f0f0;
   --inset-visualShadow: #f0f0f0;
   --girl-dropShadow: white;
@@ -317,7 +319,7 @@ section {
 }
 
 .about-text a:hover {
-  color: #000; /* Text turns black on hover */
+  color: var(--hover-accent); /* Text turns black on hover */
 }
 
 .about-text a:hover::before {
@@ -1583,14 +1585,31 @@ section {
 }
 
 .contact-item a {
-  text-decoration: none;
-  font-weight: 500;
   color: var(--contact-accent);
+  text-decoration: none; /* Remove underline by default */
+  font-weight: 500;
+  position: relative;
   transition: color 0.3s ease;
 }
 
+.contact-item a::before {
+  content: '';
+  background: var(--contact-accent);
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  transition: width 0.3s ease-in-out;
+}
+
 .contact-item a:hover {
-  color: #0056b3; /* Hover color for links */
+  color: var(--hover-accent); /* Text turns black on hover */
+}
+
+.contact-item a:hover::before {
+  width: 100%; /* Blue underline appears */
 }
 
 @media (max-width: 768px) {
@@ -1627,51 +1646,6 @@ section {
   gap: 16px;
   justify-content: center;
   margin-top: 10px;
-}
-
-.social-icons a {
-  color: var(--text-color);
-  font-size: 24px;
-  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.social-icons a:hover {
-  color: #0077b5; /* LinkedIn blue */
-  transform: scale(1.1);
-}
-
-.social-icons a:focus {
-  outline: 2px solid #0077b5;
-  outline-offset: 2px;
-}
-
-
-/* Footer Styles */
-.site-footer {
-  background-color: var(--nav-bg);
-  color: var(--text-color);
-  padding: 14px 16px;
-  text-align: center;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer-content p {
-  margin: 0;
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-.social-icons {
-  display: flex;
-  gap: 16px;
 }
 
 .social-icons a {
