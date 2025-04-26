@@ -1,0 +1,288 @@
+                                                                                     <!DOCTYPE html>
+<html>
+<!--Head-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Catie Condit</title>
+    <link rel="shortcut icon" type="img/jpg" href="Images/coding_icon.png">
+    <link rel="stylesheet" type="text/css" href="CSS/home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<!--Body-->
+<body>
+    <!--navbar-->
+    <div class="Navbar hidden">
+        <h1><span class="navbar-name">Catherine Condit</span></h1>
+        <nav class="nav-links">
+            <a href="#Home">Home</a>
+            <a href="#Slideshow">Slideshow</a>
+            <a href="#About">About</a>
+            <a href="#Github">GitHub</a>
+            <a href="#Lab">Lab</a>
+            <a href="#Contact">Contact</a>
+        </nav>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider">
+                <i class="fa fa-sun-o sun-icon"></i>
+                <i class="fa fa-moon-o moon-icon"></i>
+            </span>
+        </label>
+    </div>
+
+  <!-- Hero Section -->
+    <section class="hero" id="Home">
+        <div class="hero-content">
+            <div class="hero-girl-container">
+                <div class="girl">
+                    <div class="hair"></div>
+                    <div class="head">
+                        <div class="bangs"></div>
+                        <div class="eyebrow left-brow"></div>
+                        <div class="eyebrow right-brow"></div>
+                        <div class="eye left">
+                            <div class="sparkle"></div>
+                        </div>
+                        <div class="eye right">
+                            <div class="sparkle"></div>
+                        </div>
+                        <div class="mouth"></div>
+                    </div>
+                    <div class="body"></div>
+                    <div class="ruffle-left"></div>
+                    <div class="ruffle-right"></div>
+                    <div class="arm-left"></div>
+                    <!-- Split arm -->
+                    <div class="arm-right-upper"></div>  <!-- Upper arm (static) -->
+                    <div class="arm-right-forearm"></div>  <!-- Forearm (waving) -->
+                </div>
+                <div class="hero-text-bubble">You can call me Catie.</div>
+            </div>
+            <h1>Hi, I'm Catherine Condit</h1>
+            <p>A designer & developer building creative experiences that fit your needs.</p>
+        </div>
+    </section>
+
+    <!-- Slideshow section added -->
+    <section id="Slideshow">
+        <div id="Slideshow_Container">
+            <div id="Slideshow_Track">
+                <div class="mySlides">
+                    <div class="left-side">
+                        <img src="Images/Picture_of_You.jpg" alt="Picture of girl">
+                    </div>
+                    <div class="right-side">
+                        <div class="text">I'm available to assist you on your project!</div>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <div class="left-side">
+                        <img src="Images/HTML_CSS_and_JavaScript.jpeg" alt="HTML, CSS, JS logos">
+                    </div>
+                    <div class="right-side">
+                        <div class="text">I am a full-stack software developer, trained in HTML, CSS, JavaScript.</div>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <div class="left-side">
+                        <img src="Images/Python.png" alt="Python logo">
+                    </div>
+                    <div class="right-side">
+                        <div class="text">The popular programming language Python</div>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <div class="left-side">
+                        <img src="Images/C_Sharp_and_Dot_NET.png" alt="C# and .NET">
+                   </div>
+                   <div class="right-side">
+                       <div class="text">C#, .NET Framework, ASP.NET, MVC</div>
+                   </div>
+               </div>
+               <div class="mySlides">
+                   <div class="left-side">
+                       <img src="Images/SQL_and_Database.jpg" alt="SQL and Database">
+                   </div>
+                   <div class="right-side">
+                       <div class="text">Back end development, databases and SQL</div>
+                   </div>
+               </div>
+               <div class="mySlides">
+                   <div class="left-side">
+                       <img src="Images/contact_me.jpg" alt="Girl Coding">
+                   </div>
+                   <div class="right-side">
+                       <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now!</a></div>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+        <!-- Dot navigation (below slideshow) -->
+        <div class="dots-wrapper">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about fade-in" id="About">
+        <div class="container about-container">
+            <!-- Left Column: Text -->
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I create clean, functional designs with a user-first approach. Driven by creativity and a passion for problem-solving, I am committed to building innovative solutions and contributing to a more inclusive, forward-thinking tech industry.</p>
+                <p>As a graduate of
+                    <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>'s Software Developer Boot Camp,
+                    I’m trained in full-stack web development: HTML, CSS, JavaScript, C#, SQL, and more.</p>
+                <p>
+                    An avid lover of all forms of art—fine art, music, or creative hobbies—I view code as an expressive medium.
+                    Let’s collaborate to build something meaningful.
+                    <a href="#Contact">Contact me</a> below!
+                </p>
+            </div>
+            <!-- Right Column: Visual -->
+            <div class="about-visual">
+                <div class="neuro-flow">
+                    <img src="Images/brain.jpg" alt="Brain" class="icon brain">
+                    <img src="Images/laptop.jpg" alt="Laptop" class="icon laptop">
+                    <svg class="pulse-line" viewBox="0 0 300 300" preserveAspectRatio="none">
+                        <path d="M20 40 C 140 100, 160 180, 280 260" stroke="rgb(135, 206, 235)" stroke-width="2" fill="none" />
+                    </svg><svg class="pulse-line2" viewBox="0 0 300 300" preserveAspectRatio="none">
+                    <path d="M20 40 C 140 100, 160 180, 280 260" stroke="rgb(135, 206, 235)" stroke-width="2" fill="none" />
+                </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Github">
+        <div class="container github-section fade-in">
+            <h2>Check out my GitHub</h2>
+            <p>Explore some of my projects and contributions to GitHub.</p>
+            <a class="github-button" href="https://github.com/Catherine-Condit" target="_blank" rel="noopener">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Visit GitHub Profile
+            </a>
+        </div>
+    </section>
+
+
+    <section id="Lab" class="in-the-lab">
+        <div class="lab-container fade-in">
+            <!-- Left Column: Animation -->
+            <div class="lab-left">
+                <div class="lab-girl-container">
+                    <div class="girl">
+                        <div class="hair"></div>
+                        <div class="head">
+                            <div class="bangs"></div>
+                            <div class="eyebrow left-brow"></div>
+                            <div class="eyebrow right-brow"></div>
+                            <div class="eye left">
+                                <div class="sparkle"></div>
+                            </div>
+                            <div class="eye right">
+                                <div class="sparkle"></div>
+                            </div>
+                            <div class="mouth"></div>
+                        </div>
+                        <div class="body"></div>
+                        <div class="arm-left"></div>
+                        <div class="arm-right"></div>
+                        <div class="goggles"><div class="lens left"></div>
+                            <div class="nose-piece"></div>
+                            <div class="lens right"></div>
+                        </div>
+                    </div>
+                    <div class="lab-text-bubble">Let's bring our ideas to life!</div>
+                </div>
+                <div class="lab-table">
+                    <!-- Bottle and Flask -->
+                    <div class="flask">
+                        <div class="flask-neck"></div>
+                        <div class="flask-body"></div>
+                        <div class="explosion"></div>
+                        <div class="bubbles">
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                        </div>
+                    </div>
+                    <div class="blue-flask">
+                        <div class="blue-neck"></div>
+                        <div class="blue-body"></div>
+                    </div>
+                    <div class="curly-straw"></div>
+                    <div class="liquid-straw"></div>
+                    <div class="yellow-flask">
+                        <div class="yellow-neck"></div>
+                        <div class="yellow-body"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Text -->
+            <div class="lab-right">
+                <div class="lab-right-left">
+                    <h3>In</h3>
+                    <h3>The</h3>
+                    <h3>Lab</h3>
+                </div>
+                <div class="lab-right-right">
+                    <p>
+                        I’m passionate about building effective, high-quality solutions and constantly improving my skills. As I continue to learn and grow, I enjoy exploring new technologies and finding creative ways to solve problems. Let's connect and discuss how we can collaborate.
+                    </p>
+                    <a class="contact-btn neon-pulse" href="#Contact">Let's Connect</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="Contact" class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Your Name" required />
+                <input type="email" placeholder="Your Email" required />
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+                <div id="success-message" class="success-message hidden">
+                    <span class="close-btn" onclick="dismissMessage()">×</span>
+                    Thanks! Your message has been sent. 💌
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!--Footer section-->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Catherine Condit</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/catherine-condit05" target="_blank" rel="noopener" title="LinkedIn">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Catherine-Condit"  target="_blank" rel="noopener" title="Github">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/home.js"></script>
+</body>
+</html>

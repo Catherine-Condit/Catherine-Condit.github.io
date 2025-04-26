@@ -1,0 +1,1655 @@
+/* Theme Variables */
+:root {
+  --bg-color: #ffffff;
+  --nav-bg:rgba(255, 255, 255, 0.5);
+  --text-color: #000000;
+  --subtext-color: #666;
+  --section-bg: #f5f5f5;
+  --hero-bg: linear-gradient(45deg, #f5f5f5, #e3f0fa, #a9d4ef, #007aff); /* Subtle light tones */
+  --slideshow-bg: #d9d9d9;
+  --slideshow-slide: white;
+  --slideshow-text: #121212;
+  --about-visualShadow: rgba(0, 0, 0, .12);
+  --inset-visualShadow: rgba(0,0,0,0.9);
+  --girl-dropShadow: rgba(0,0,0,0.1);
+  --button-text: #fff;
+  --button-bg: linear-gradient(145deg, #2c2c2c, #000000);
+  --button-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+  --button-hover-shadow: 0 4px 8px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+  --button-hover-bg: linear-gradient(145deg, #1e1e1e, #000000);
+  --button-active-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+  --contact-bg: var(--section-bg);
+  --contact-text: var(--text-color);
+  --contact-input-bg: #ffffff;
+  --contact-input-border: #ccc;
+  --contact-accent: #87ceeb;
+  --contact-button-bg: var(--button-bg);
+  --contact-buttonShadow: 0 8px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+  --contact-button-text: var(--button-text);
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --nav-bg: rgb(128, 128, 128, 0.7);
+  --text-color: #e0e0e0;
+  --subtext-color: #aaa;
+  --section-bg: #1f1f1f;
+  --hero-bg: linear-gradient(45deg, #0d0d0d, #181818, #242424); /* Subtle dark tones */
+  --slideshow-bg: grey;
+  --slideshow-slide: #121212;
+  --slideshow-text: #e0e0e0;
+  --about-visualShadow: #f0f0f0;
+  --inset-visualShadow: #f0f0f0;
+  --girl-dropShadow: white;
+  --button-text: #ffffff;
+  --button-bg: linear-gradient(145deg, #444, #222);
+  --button-shadow: 0 8px 16px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+  --button-hover-shadow: 0 4px 8px rgba(255, 255, 255, 0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+  --button-hover-bg: linear-gradient(145deg, #333, #111);
+  --button-active-shadow: inset 0 2px 4px rgba(255,255,255,0.2);
+  --contact-bg: #1e1e1e;
+  --contact-text: #f1f1f1;
+  --contact-input-bg: #2c2c2c;
+  --contact-input-border: #444;
+  --contact-accent: #87ceeb;
+  --contact-button-bg: var(--button-bg);
+  --contact-buttonShadow: 0 8px 16px rgba(255, 255, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+  --contact-button-text: var(--button-text);
+}
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color:  var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+.Navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between; /* Space out name and nav links */
+  align-items: center;
+  padding: 8px 16px; /* Reduced padding */
+  height: 44px; /* Tighter height */
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Name on the far left */
+.navbar-name {
+  margin: 0;
+  padding-left: 13px;
+  font-family: 'Dancing Script', cursive; /* Apply Dancing Script font */
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text-color);
+}
+
+/* Center navigation links */
+.nav-links {
+  display: flex;
+  gap: 30px; /* Space between links */
+  justify-content: center; /* Center links */
+  align-items: center;
+  flex: 1; /* Take up available space */
+}
+
+.Navbar a {
+  text-decoration: none;
+  color: #000;
+  font-size: 0.88rem; /* Slightly smaller */
+  font-weight: 500;
+  padding: 4px 8px;
+  transition: color 0.3s ease;
+}
+
+.Navbar a:hover {
+  color: #555;
+}
+
+.Navbar a.active {
+  font-weight: 600;
+  border-bottom: 2px solid #000;
+}
+
+/* Light/Dark Mode Switch */
+/* Toggle Switch Container */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px; /* Wider width for slider look */
+  height: 30px;
+  margin: 0 10px;
+}
+
+/* Hide the checkbox */
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider background (track) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Light gray for light mode */
+  border-radius: 34px;
+  transition: background-color 0.4s ease;
+}
+
+/* Circle handle inside the slider */
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%; /* Circular handle */
+  transition: transform 0.4s ease, background-color 0.4s ease;
+  z-index: 2;
+}
+
+/* Sun and Moon Icons */
+.sun-icon,
+.moon-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  z-index: 2;
+}
+
+.sun-icon {
+  left: 7px; /* Position sun icon to the left */
+  color: #ffd700; /* Yellow sun color */
+  opacity: 1;
+  top: 15px;
+}
+
+.moon-icon {
+  right: 6px; /* Position moon icon to the right */
+  color: #4d4d4d; /* Gray moon color */
+  opacity: 0; /* Hidden by default */
+  top: 15px;
+}
+
+/* When Checkbox is Checked (Dark Mode) */
+input:checked + .slider {
+  background-color: #4d4d4d; /* Dark gray for dark mode */
+}
+
+input:checked + .slider::before {
+  transform: translateX(30px); /* Move handle to the right */
+  background-color: white; /* Keep handle color consistent */
+}
+
+input:checked + .slider .sun-icon {
+  opacity: 0; /* Hide Sun */
+}
+
+input:checked + .slider .moon-icon {
+  opacity: 1; /* Show Moon */
+}
+
+section {
+  padding: 50px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hero Section with Theme-Specific Animated Gradients */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--hero-bg); /* Use theme-specific variable */
+  background-size: 400% 400%; /* Larger background for smooth animation */
+  text-align: center;
+  position: relative;
+  animation: gradientMove 10s infinite; /* Animation for gradient */
+}
+
+.hero-content {
+  transition: opacity 0.3s ease;
+  opacity: 1; /* Default */
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-top: 10px;
+  font-weight: 700;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #555;
+}
+
+/* About Section */
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--subtext-color);
+  margin-bottom: 1.25rem;
+}
+
+/* About Section Anchor Tags */
+.about-text a {
+  color: rgb(135, 206, 235);
+  text-decoration: none; /* Remove underline by default */
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.about-text a::before {
+  content: '';
+  background: rgb(135, 206, 235);
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  transition: width 0.3s ease-in-out;
+}
+
+.about-text a:hover {
+  color: #000; /* Text turns black on hover */
+}
+
+.about-text a:hover::before {
+  width: 100%; /* Blue underline appears */
+}
+
+.about-visual {
+  flex: 1;
+  min-width: 280px;
+  position: relative;
+  height: 300px;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+}
+
+.about-visual:before {
+  content: "";
+  position: absolute;
+  background: white;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  filter: blur(10px);
+  margin: -20px;
+}
+
+.about-visual:hover {
+  box-shadow: 0 20px 40px var(--about-visualShadow);
+  transform: translateY(-2px);
+  transition: all 0.4s ease;
+}
+
+
+.neuro-flow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.icon.brain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.icon.laptop {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.icon.brain, .icon.laptop {
+  transition: transform 0.4s ease;
+}
+
+.icon.brain:hover, .icon.laptop:hover {
+  transform: scale(1.05);
+}
+
+.pulse-line, .pulse-line2{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.pulse-line path {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: dash 1s infinite ease-in-out;
+  filter: drop-shadow(0 0 6px rgb(135, 206, 235));
+  d: path("M 50 50 C 140 140, 160 160, 240 170");
+}
+
+.pulse-line2 path {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: dash-reverse 1s infinite ease-in-out;
+  animation-delay: .5s;
+  filter: drop-shadow(0 0 6px rgb(135, 206, 235));
+  d: path("M 240 170 C 180 100, 120 80, 50 50");
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 500;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes dash-reverse {
+  0% {
+    stroke-dashoffset: 500;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+/* Scroll fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Animations on scroll (JS will add .visible) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slideshow layout */
+#Slideshow {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 20px var(--inset-visualShadow);
+}
+
+#Slideshow_Container {
+    height: 100%;
+    display: flex;
+    gap: 2vw;
+    transition: transform 0.8s ease-in-out;
+    align-items: center;
+    position: relative;
+}
+
+#Slideshow_Track {
+    display: flex;
+    gap: 4vw;
+    align-items: center;
+    transition: transform 1s ease-in-out;
+    height: 100%;
+}
+
+/* Slideshow layout */
+.mySlides {
+    width: 60vw;
+    height: 70vh;
+    display: flex;
+    flex-shrink: 0;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease, transform 0.8s ease, opacity 0.5s ease;
+    border-radius: 15px;
+    margin: 0;
+    flex-shrink: 0;
+    overflow: hidden;
+    background-color: var(--slideshow-slide);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid #ddd;
+    opacity: 0.5; /* Non-active slides are slightly transparent */
+}
+
+.mySlides.active {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+    opacity: 1; /* Active slides are fully visible */
+}
+
+
+.left-side, .right-side {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.left-side {
+    justify-content: flex-end;
+}
+
+.left-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.right-side {
+    text-align: left;
+    justify-content: flex-start;
+}
+
+.right-side .text {
+    font-size: 1.8rem;
+    color: var(--slideshow-text);
+}
+
+/* Dot Navigation */
+.dots-wrapper {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+
+/*girl*/
+.hero-girl-container .girl {
+  position: absolute;
+  z-index: 0;
+  transform: scale(0.85);
+  transition: transform 0.3s ease;
+}
+
+/* Text bubble style */
+.hero-text-bubble {
+  position: absolute;
+  top: 60px;
+  left: 37%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #333;
+  padding: 10px;
+  border-radius: 12px 12px 0px 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  width: 255px;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Fade in/out */
+  z-index: 4;
+  pointer-events: none; /* Ensures it doesn't block interactions */
+}
+
+/* Show text bubble when hovering over the girl */
+.hero-girl-container:hover .hero-text-bubble {
+  opacity: 1;
+  visibility: visible;
+}
+
+.girl {
+  position: absolute;
+  top: 17%;
+  filter: drop-shadow(0 4px 20px var(--girl-dropShadow));
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%) scale(0.75); /* 0.75 = 75% size */
+  transform-origin: top center;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) scale(0.75) translateY(0); }
+  50% { transform: translateX(-50%) scale(0.75) translateY(-5px); }
+}
+
+.head,
+.body,
+.arm-left,
+.arm-right-upper,
+.arm-right-forearm {
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.12));
+}
+
+/* Head */
+.head {
+  width: 77px;
+  height: 80px;
+  background: linear-gradient(to bottom, #fddbb0, #fcbf90);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* Hair */
+.hair {
+  width: 100px;
+  height: 120px;
+  background: #3a2d2d;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 40% 40% 20% 20%;
+  z-index: 0;
+}
+
+.bangs {
+  width: 80px;
+  height: 30px;
+  background: #3a2d2d;
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 0 0; /* curved top, straight bottom */
+  z-index: 1;
+}
+
+/* Body */
+.body {
+  width: 80px; /* Wider for better shoulder slope effect */
+  height: 100px;
+  background: linear-gradient(to bottom right, #d8eefe, #a9d4ef);
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  z-index: 9;
+  transform: translateX(-50%);
+  border-radius: 10px 0 30px 30px; /* Soft rounded bottom for a natural curve */
+}
+
+/* Shoulder slopes */
+.body::before {
+  content: '';
+  width: 40px; /* Shoulder width */
+  height: 20px;
+  background: #8ecae6;
+  position: absolute;
+  top: -10px; /* Position above the body */
+  left: 50%;
+  transform: translateX(-50%) rotate(-15deg); /* Slightly sloped */
+  border-radius: 50%;
+}
+
+/* Ruffle Sleeves - Left */
+.ruffle-left {
+  width: 40px;
+  height: 40px;
+  background: #d8eefe;
+  position: absolute;
+  top: 80px; /* aligns with top of body */
+  left: calc(50% - 58px); /* offset slightly more left than the arm */
+  border-radius: 50%;
+  transform: rotate(-20deg);
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Ruffle Sleeves - Right */
+.ruffle-right {
+  width: 40px;
+  height: 30px;
+  background: #d8eefe;
+  position: absolute;
+  top: 80px;
+  left: calc(50% + 18px);
+  border-radius: 50%;
+  transform: rotate(20deg);
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Arm - static */
+.arm-left {
+  width: 20px;
+  height: 100px;
+  background: #fddbb0;
+  position: absolute;
+  top: 82px; /* Align with the sloping body */
+  left: calc(50% - 48px); /* Adjusted to fit the sloped shoulders */
+  z-index: 1;
+  border-radius: 20px;
+  transform-origin: top center; /* Rotate from the shoulder */
+  transform: rotate(15deg); /* Angle the arm at 90 degrees */
+}
+
+/* Arm - static (upper arm) */
+.arm-right-upper {
+  width: 20px;
+  height: 50px; /* Half of the arm length (upper part) */
+  background: #fddbb0;
+  position: absolute;
+  top: 85px; /* Align with the body */
+  left: calc(50% + 25px); /* Adjusted to fit the sloped shoulders */
+  border-radius: 20px; /* Rounded at the top */
+  transform-origin: top center; /* Rotate from the shoulder */
+  transform: rotate(-45deg); /* Angle the arm at 90 degrees */
+}
+
+/* Arm - waving (forearm) */
+.arm-right-forearm {
+  width: 20px;
+  height: 60px; /* Remaining part of the arm (forearm) */
+  background: #fddbb0;
+  position: absolute;
+  z-index: 10;
+  top: 65px; /* Position below the upper arm (elbow) */
+  left: calc(50% + 57px);
+  border-radius: 20px; /* Rounded bottom */
+  transform-origin: bottom center; /* Rotate from the elbow */
+  animation: wave 1s infinite ease-in-out;
+}
+
+
+@keyframes wave {
+  0%, 100% { transform: rotate(10deg); }
+  50% { transform: rotate(18deg); }
+}
+
+.eyebrow {
+  width: 20px;
+  height: 10px;
+  border-top: 3px solid #3a2d2d;
+  border-radius: 50% / 100%;
+  background: transparent;
+  position: absolute;
+  top: 32px;
+  animation: brow-raise 4s infinite ease-in-out;
+}
+
+.left-brow {
+  left: 15px;
+  transform: rotate(-10deg);
+}
+
+.right-brow {
+  right: 15px;
+  transform: rotate(10deg);
+}
+
+@keyframes brow-raise {
+  0%, 100% {
+    transform: translateY(0); /* start neutral */
+  }
+  50% {
+    transform: translateY(-2px); /* lift and arch */
+  }
+}
+
+/* Eyes */
+.eye {
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 40px;
+}
+
+.eye.left {
+  left: 25px;
+}
+
+.eye.right {
+  right: 25px;
+}
+
+.girl:hover .eye {
+  animation: blink 0.3s ease-in-out;
+}
+
+@keyframes blink {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.1); }
+}
+
+/* Sparkle dot inside eyes */
+.eye .sparkle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  top: 1px;
+  left: 1px;
+  opacity: 0.9;
+  animation: sparkle-glint 2s infinite ease-in-out;
+}
+
+@keyframes sparkle-glint {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+}
+
+/* Mouth */
+.mouth {
+  width: 25px;
+  height: 10px;
+  border-radius: 50%;
+  background: transparent;
+  border-bottom: 2px solid #e76f51;
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.girl:hover .mouth {
+  border-bottom: 8px solid #e76f51;
+  height: 20px;
+  width: 25px;
+  top: 48px;
+  transition: all 0.5s ease;
+}
+/*end girl*/
+
+/*github section*/
+.github-section {
+  text-align: center;
+  padding: 50px 20px 50px 20px;
+  background-color: var(--section-bg); /* soft contrast from about section */
+}
+
+.github-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+}
+
+.github-section p {
+  font-size: 1.1rem;
+  color: var(--subtext-color);
+  margin-bottom: 2rem;
+}
+
+.github-button {
+    position: relative;
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--button-bg);
+  border-radius: 50px;
+  box-shadow: var(--button-shadow);
+  transition: 0.5s;;
+  text-decoration: none;
+  overflow: hidden;
+  transform: translateY(0);
+}
+
+.github-button:hover {
+  background: rgb(135, 206, 235);
+  color: #fff;
+  box-shadow:
+    0 0 5px rgb(135, 206, 235),
+    0 0 25px rgb(135, 206, 235),
+    0 0 50px rgb(135, 206, 235),
+    0 0 200px rgb(135, 206, 235);
+}
+
+.github-button span {
+  position: absolute;
+  display: block;
+  z-index: 0;
+}
+
+/* TOP border */
+.github-button span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgb(135, 206, 235));
+  animation: animate1 1s linear infinite;
+}
+
+/* BOTTOM border */
+.github-button span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(270deg, transparent, rgb(135, 206, 235));
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+/* KEYFRAMES */
+@keyframes animate1 {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+@keyframes animate2 {
+  0% { top: -100%; }
+  50%, 100% { top: 100%; }
+}
+
+@keyframes animate3 {
+  0% { right: -100%; }
+  50%, 100% { right: 100%; }
+}
+
+@keyframes animate4 {
+  0% { bottom: -100%; }
+  50%, 100% { bottom: 100%; }
+}
+
+/*end github section*/
+
+/* In the Lab Section */
+.in-the-lab {
+  padding: 80px 20px 130px 20px;
+  box-shadow: inset 0px 0px 20px var(--inset-visualShadow);
+  background: var(--bg-color);
+}
+
+.lab-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px; /* Space between columns */
+  margin: 0 auto;
+  align-items: center; /* Vertically center content */
+}
+
+/* Left Column: Animation */
+.lab-left {
+  position: relative;
+  display: flex;
+  justify-content: center; /* Center the table horizontally */
+  align-items: center; /* Center all content vertically */
+  height: 100%;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 150px;
+}
+
+.lab-girl-container {
+    display: inline-block;
+    width: 100%;
+}
+
+/* Scoped Girl Styles for the Lab Section */
+.lab-girl-container .girl {
+  position: absolute;
+  top: 105px;
+  left: 180px;
+  z-index: 0;
+  transform: scale(0.85);
+  transition: transform 0.3s ease;
+}
+
+/* Text bubble style */
+.lab-text-bubble {
+  position: absolute;
+  top: 35px;
+  left: 52%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #333;
+  padding: 10px;
+  border-radius: 12px 12px 12px 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  max-width: 170px;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Fade in/out */
+  z-index: 4;
+  pointer-events: none; /* Ensures it doesn't block interactions */
+}
+
+/* Show text bubble when hovering over the girl */
+.lab-girl-container:hover .lab-text-bubble {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Add a slight hover effect to the girl */
+.lab-girl-container:hover .girl {
+  transform: scale(0.75); /* Slightly reduce size on hover */
+}
+
+/* right arm - fully static */
+.arm-right {
+  width: 20px;
+  height: 100px;
+  background: #ffffff;
+  position: absolute;
+  top: 82px; /* Align with the sloping body */
+  left: calc(50% + 28px); /* Adjusted to fit the sloped shoulders */
+  z-index: 1;
+  border-radius: 20px;
+  transform-origin: top center; /* Rotate from the shoulder */
+  transform: rotate(15deg); /* Angle the arm at 90 degrees */
+}
+
+.in-the-lab .arm-left{
+    background: #ffffff;
+}
+
+.in-the-lab .head,
+.in-the-lab .body,
+.in-the-lab .arm-left,
+.in-the-lab .arm-right {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.12));
+}
+
+/* Add Lab Coat */
+.in-the-lab .body {
+  background: #ffffff; /* White lab coat */
+  border-radius: 5px 10px 30px 30px; /* Sharper shoulders for lab coat */
+  border: 2px solid #d3d3d3; /* Subtle border for coat */
+}
+
+.in-the-lab .ruffle-left,
+.in-the-lab .ruffle-right {
+  display: none; /* Remove ruffles for lab coat */
+}
+
+.in-the-lab .arm-left,
+.in-the-lab .arm-right {
+  transform: rotate(0); /* Arms down */
+}
+
+.in-the-lab .goggles {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 20px;
+  z-index: 11;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align everything to the top */
+  gap: 1px; /* No spacing between items */
+  position: relative;
+}
+
+/* Both lenses */
+.in-the-lab .goggles .lens {
+  width: 40px;
+  height: 20px;
+  background: rgba(173, 216, 230, 0.5);
+  border: 2px solid #999;
+  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+/* custom shapes */
+.in-the-lab .goggles .lens.left {
+  border-radius: 6px 0px 15px 25px;
+  border-top: 3px solid black;
+}
+.in-the-lab .goggles .lens.right {
+  border-radius: 0px 6px 25px 15px;
+  border-top: 3px solid black;
+}
+
+/* Nose piece */
+.in-the-lab .goggles .nose-piece {
+  position: absolute;
+  top: 0px; /* Aligns with top of lenses */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 8px;
+  border-top: 3px solid black;
+  background: #999;
+  z-index: 12;
+  border-radius: 2px;
+}
+
+
+/* Lab Table */
+.lab-table {
+  position: relative; /* Relative to lab container */
+  width: 400px; /* Adjust table width */
+  height: 100px; /* Adjust table height */
+  background: #d3d3d3;
+  border: 3px solid #999;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin: 0 auto; /* Center the table */
+}
+
+/* Flask Container */
+.flask {
+  position: absolute;
+  bottom: 86px;
+  left: 190px;
+  width: 60px;
+  height: 100px;
+}
+
+/* Neck of the Flask */
+.flask-neck {
+  width: 16px;
+  height: 35px;
+  background: rgba(135, 199, 125, 0.8);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -5px; /* Pull neck up behind the body */
+  border-radius: 4px 4px 0px 0px;
+  z-index: 0; /* Behind the body */
+  position: relative;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Flask Body */
+.flask-body {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at center, #87c77d 40%, #6da263 100%);
+  margin: 0 auto;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1; /* On top of neck */
+  box-shadow:
+    inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+    0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Glass shine effect */
+.flask-body::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  filter: blur(1px);
+}
+/* Bubbles */
+.bubbles {
+  position: absolute;
+  bottom: 100px;
+  left: 45%;
+  transform: translateX(-50%);
+}
+
+.bubble {
+  width: 10px;
+  height: 10px;
+  background: #87c77d;
+  border-radius: 50%;
+  animation: bubble-rise 2s infinite ease-in-out;
+  margin-bottom: 5px;
+  position: absolute;
+  bottom: 0;
+}
+
+.bubble:nth-child(2) {
+  width: 8px;
+  height: 8px;
+  animation-delay: .6s;
+}
+
+.bubble:nth-child(3) {
+  width: 6px;
+  height: 6px;
+  animation-delay: 1.4s;
+}
+
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+/* Explosion effect */
+.explosion {
+  position: absolute;
+  bottom: 110px; /* Just above the flask */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.6) 20%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  animation: none;
+}
+
+.flask:hover .explosion {
+  animation: explodeSwirl 1.2s ease-out forwards;
+}
+
+/* Keyframes for swirling explosion */
+@keyframes explodeSwirl {
+  0% {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(0.2) rotate(0deg);
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.6) 20%, transparent 70%);
+  }
+  25% {
+    background: radial-gradient(circle, rgba(255, 165, 0, 0.6) 20%, transparent 70%);
+  }
+  50% {
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.6) 20%, transparent 70%);
+    transform: translateX(-50%) scale(1.2) rotate(180deg);
+  }
+  75% {
+    background: radial-gradient(circle, rgba(0, 255, 0, 0.6) 20%, transparent 70%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(2) rotate(360deg);
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.6) 20%, transparent 70%);
+  }
+}
+
+/* Curly Straw (U-shaped Transparent Tube) */
+.curly-straw {
+  position: absolute;
+  bottom: 115px; /* Align with the blue flask */
+  left: 280px; /* Align with the blue flask */
+  width: 70px; /* Width for the U-shape */
+  height: 120px; /* Height for the U-shape */
+  border-top: 5px solid  rgb(234,240,240, 0.7); /* Same border for the top */
+  border-left: 5px solid  rgb(234,240,240, 0.7);
+  border-bottom: none;
+  border-right: 5px solid  rgb(234,240,240, 0.7);
+  border-radius: 60px 60px 0 0; /* Creates the U-shape */
+  background: transparent; /* No background */
+  overflow: hidden; /* Clip the flowing liquid inside the straw */
+  z-index: 0;
+}
+
+/* Liquid Animation Inside the Straw */
+.liquid-straw {
+  position: absolute;
+  bottom: 115px; /* Align with the blue flask */
+  left: 282px; /* Align with the blue flask */
+  width: 66px; /* Adjust to fit inside the straw */
+  height: 118px;
+  border-top: 2px solid #c3d376; /* Same border for the top */
+  border-left: 2px solid rgba(135, 206, 235);
+  border-bottom: none;
+  border-right: 2px solid #ffd700;
+  border-radius: 60px 60px 0 0; /* Creates the U-shape */
+  z-index: 3; /* Ensure it's above the table */
+}
+
+/* Blue Flask */
+.blue-flask {
+  position: absolute;
+  bottom: 96px;
+  right: 85px;
+  width: 40px; /* Flask width */
+  height: 60px; /* Flask height */
+  background: linear-gradient(to top, rgba(135, 206, 235, 0.6), transparent); /* Glassy gradient */
+  border: 2px solid rgba(135, 206, 235, 0.5); /* Glassy border */
+  border-radius: 5px 5px 15px 15px; /* Rounded bottom */
+  overflow: hidden; /* Clip the liquid inside */
+  z-index: 2;
+}
+
+.blue-neck {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px; /* Flask neck width */
+  height: 20px; /* Flask neck height */
+  background: rgba(135, 206, 235, 0.5); /* Glassy neck */
+  border-radius: 5px; /* Rounded edges */
+}
+
+.blue-body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%; /* Liquid fills half the flask */
+  background: #87ceeb; /* Blue liquid */
+  border-radius: 0 0 10px 10px; /* Rounded bottom of the liquid */
+}
+
+/* Yellow Flask */
+.yellow-flask {
+  position: absolute;
+  bottom: 96px;
+  right: 30px; /* Align to the right side */
+  width: 30px; /* Flask width */
+  height: 45px; /* Flask height */
+  background: linear-gradient(to top, rgba(255, 255, 0, 0.6), transparent); /* Yellow glassy gradient */
+  border: 2px solid rgba(255, 255, 0, 0.5); /* Yellow glassy border */
+  border-radius: 0 0 15px 15px; /* Rounded bottom */
+  overflow: hidden; /* Clip the liquid inside */
+  z-index: 2;
+}
+
+.yellow-neck {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px; /* Flask neck width */
+  height: 20px; /* Flask neck height */
+  background: rgba(255, 255, 0, 0.5); /* Yellow glassy neck */
+  border-radius: 5px; /* Rounded edges */
+}
+
+.yellow-body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%; /* Liquid fills half the flask */
+  background: #ffd700; /* Bright yellow liquid */
+  border-radius: 0 0 10px 10px; /* Rounded bottom of the liquid */
+}
+
+/* Flask Hover Animations */
+.blue-flask:hover .blue-body,
+.yellow-flask:hover .yellow-body {
+  animation: liquid-wave 1s ease-in-out infinite, ripple 1.5s ease-in-out forwards;
+  transform: translateY(3px);
+}
+
+/* Wavy liquid movement inside the flask */
+@keyframes liquid-wave {
+  0%, 100% {
+    height: 50%;
+    transform: translateY(0);
+  }
+  50% {
+    height: 65%;
+    transform: translateY(-3px);
+  }
+}
+
+/* Liquid Ripple Effect */
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+    rotate: 5deg;
+  }
+  50% {
+    transform: scale(1.2); /* Slightly grow the liquid */
+    opacity: 1;
+    rotate: -5deg;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+.lab-right {
+  display: flex;
+  flex-direction: row;
+  height: 100%; /  gap: 40px;
+  width: 100%;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.lab-right-left { /* Left Column */
+  display: flex;
+  flex-direction: column;
+  width: 90px; /* Set a fixed width for the left column */
+  justify-content: center;
+  margin-right: 20px;
+  justify-content: flex-start;
+}
+
+.lab-right-left h3 {
+  line-height: .9;
+  font-size: 7rem;
+  letter-spacing: 1px;
+  text-align: left;
+  font-family: 'Bebas Neue', sans-serif;
+  margin: 0;
+  color: var(--subtext);
+}
+
+.lab-right-right { /* right Column */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+  margin-left: 40px;
+  padding-left: 20px;
+  padding-bottom: 40px;
+  padding-right: 10px;
+}
+
+.lab-right-right p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--subtext);
+  margin-bottom: 40px;
+}
+
+.contact-btn {
+  position: relative;
+  padding: 10px 20px; /* Reduced padding for a smaller button */
+  font-size: 1rem; /* Slightly smaller font size */
+  font-weight: 600;
+  color: #121212;
+  text-decoration: none;
+  background-color: rgb(135, 206, 235); /* Light blue */
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  max-width: 200px; /* Adjusted width for better fit */
+  border-radius: 5px; /* Rounded corners */
+  z-index: 1;
+}
+
+/* Neon Pulse Effect */
+.neon-pulse {
+  background: rgb(135, 206, 235); /* Light blue background */
+  border: 2px solid rgba(135, 206, 235, 0.9); /* Light blue border */
+  box-shadow: 0 0 10px rgba(135, 206, 235, 0.3); /* Light blue glow */
+  overflow: visible;
+}
+
+.neon-pulse::before,
+.neon-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 2px solid rgba(135, 206, 235, 0.9); /* Light blue border */
+  border-radius: inherit;
+  animation: pulseOut 2s ease-out infinite;
+  opacity: 0;
+}
+
+.neon-pulse::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulseOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+/*end in the lab section*/
+
+/*contact form section*/
+#Contact {
+  background-color: var(--contact-bg);
+  color: var(--contact-text);
+  padding: 80px 20px;
+}
+
+#Contact h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 24px;
+}
+
+#Contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#Contact input,
+#Contact textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--contact-input-bg);
+  border: 1px solid var(--contact-input-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--contact-text);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#Contact input:focus,
+#Contact textarea:focus {
+  border-color: var(--contact-accent);
+  outline: none;
+}
+
+#Contact button {
+  background: var(--contact-button-bg);
+  color: var(--contact-button-text);
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--contact-buttonShadow);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+#Contact button:hover {
+  background: var(--button-hover-bg);
+  box-shadow: var(--button-hover-shadow);
+}
+
+#Contact button:active {
+  box-shadow: var(--button-active-shadow);
+}
+
+.success-message {
+  position: relative;
+  margin-top: 16px;
+  padding: 12px 16px;
+  background-color: var(--section-bg);
+  border-left: 4px solid var(--contact-accent, #4caf50);
+  color: var(--text-color);
+  font-size: 0.95rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: opacity 0.3s ease;
+}
+
+.success-message .close-btn {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Footer Styles */
+.site-footer {
+  background-color: var(--nav-bg);
+  color: var(--text-color);
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-content p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.social-icons a {
+  color: var(--text-color);
+  font-size: 24px;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: #0077b5; /* LinkedIn blue */
+  transform: scale(1.1);
+}
+
+.social-icons a:focus {
+  outline: 2px solid #0077b5;
+  outline-offset: 2px;
+}
