@@ -1,4 +1,4 @@
-# Personal Portfolio ⚡
+# Personal Portfolio 
 
 [https://catherine-condit.github.io/](https://catherine-condit.github.io/)
 
